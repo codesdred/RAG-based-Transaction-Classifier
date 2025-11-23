@@ -31,31 +31,31 @@ FinAI employs a hybrid architecture combining Vector Search for retrieval and Ge
 ```mermaid
 flowchart TD
     subgraph Input
-    A[User Input: 'Uber to Airport']
+    A["User Input: 'Uber to Airport'"]
     end
 
     subgraph RAG_Engine [The RAG Brain]
-    B{Vector Search}
-    C[(Vector DB)]
-    D[Top 10 Similar Txns]
-    E[Prompt Engineering]
-    F[LLM Inference (Phi-3)]
+    B{"Vector Search"}
+    C[("Vector DB")]
+    D["Top 10 Similar Txns"]
+    E["Prompt Engineering"]
+    F["LLM Inference (Phi-3)"]
     end
 
     subgraph Persistence
-    G[(MySQL Database)]
+    G[("MySQL Database")]
     end
 
     subgraph Interface
-    H[Streamlit Dashboard]
+    H["Streamlit Dashboard"]
     end
 
-    A -->|Embedding| B
-    B <-->|Semantic Match| C
+    A -->|"Embedding"| B
+    B <-->|"Semantic Match"| C
     B --> D
     D --> E
-    E -->|Context + Query| F
-    F -->|JSON Label| G
+    E -->|"Context + Query"| F
+    F -->|"JSON Label"| G
     G <--> H
-    H -->|User Correction| G
-    G -->|Re-Indexing| C
+    H -->|"User Correction"| G
+    G -->|"Re-Indexing"| C
